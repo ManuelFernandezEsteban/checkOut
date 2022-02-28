@@ -1,0 +1,49 @@
+<div class="contenedor">
+    <form autocomplete="off" [formGroup]="payForm" (ngSubmit)="validarCard()">
+        <div class="title">
+            <img src="../../../assets/images/TuttoRiccoPinkAvatar.png" alt="">
+            <h2>Payment info</h2>
+        </div>
+
+        <div class="input-label">
+            <label for="fullName">Full Name</label>
+            <input type="text" name="fullName" placeholder="Your Name" formControlName="fullName">
+        </div>
+        <div class="input-label">
+            <label for="cardNumber">Card Number</label>
+            <div class="wrap-input">
+                <input type="text" name="cardNumber" placeholder="1234 1234 1234 1234" formControlName="cardNumber">
+                <img src="../../../assets/images/card.png" alt="card" class="input_icon">
+            </div>
+        </div>
+        <div class="card">
+            <div class="input-label mitad">
+                <label for="expiration">Expiration</label>
+                <input type="text" name="expiration" placeholder="MM/YY" formControlName="expiration">
+            </div>
+            <div class="input-label mitad">
+                <label for="cvv">CVV</label>
+                <div class="wrap-input">
+                    <input type="text" name="cvv" placeholder="···" formControlName="cvv">
+                    <img src="../../../assets/images/info.png" alt="card" class="input_icon" >
+                </div>
+
+            </div>
+        </div>
+        <div class="input-label">
+            <label for="zipCode">Zip Code</label>
+            <input type="text" name="zipCode" placeholder="Your Zip" formControlName="zipCode">
+        </div>
+        <div class="confirm">
+            <button type="submit" class="boton" [disabled]="payForm.invalid">
+                <img src="../../../assets/images/candado.png" alt="">
+                Confirm Payment
+            </button>
+            <p class="verify">You verify that this info is correct</p>
+        </div>
+    </form>
+    <div class="modal" *ngIf="validoYEnviado">
+        <app-succes></app-succes>
+    </div>
+    
+</div>
